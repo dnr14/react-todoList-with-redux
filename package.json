@@ -1,0 +1,45 @@
+{
+  "name": "react-todolist-with-redux",
+  "version": "1.0.0",
+  "description": "redux 라이브러리를 이용하여 todoList를 만들어보고 개념을 익히고 이해하는 프로젝트 입니다.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnr14/react-todoList-with-redux.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dnr14/react-todoList-with-redux/issues"
+  },
+  "homepage": "https://github.com/dnr14/react-todoList-with-redux#readme",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "@babel/preset-env": "^7.15.6",
+    "@babel/preset-react": "^7.14.5",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.3.0",
+    "file-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^2.3.0",
+    "node-sass": "^6.0.1",
+    "react-refresh": "^0.10.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.53.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
+  },
+  "scripts": {
+    "dev": "webpack server --env development",
+    "build-dev": "webpack"
+  }
+}
