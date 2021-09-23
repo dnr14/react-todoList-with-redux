@@ -1,3 +1,5 @@
+@import "./mixin.scss";
+
 $maxWidth: 500px;
 $center: center;
 $blue-color1: rgba(52, 152, 219, 1);
@@ -15,14 +17,22 @@ $inputTableletFontSize: 1rem;
 }
 
 .container {
+  min-width: 200px;
   max-width: $maxWidth;
   margin: 0 auto;
-  margin-top: 50px;
+
   box-sizing: border-box;
   padding: 20px;
   box-shadow: 2px 2px 2px $blue-color2;
   border-radius: 10px;
   border: 1px solid $black-color1;
+
+  @include mobile {
+    font-size: 12px;
+  }
+  @include tablet {
+    margin-top: 50px;
+  }
 
   .header {
     @include setDiplayFlex(column, $center, $center);
@@ -60,23 +70,28 @@ $inputTableletFontSize: 1rem;
     .menu {
       margin-top: 10px;
       display: flex;
+      gap: 10px;
       span {
         box-shadow: 0px 0px 2px $black-color1;
         border-radius: 5px;
         cursor: pointer;
         display: inline-block;
         letter-spacing: 0.09rem;
-        padding: 10px 5px;
+        padding: 0.7em 0.5em;
         &:hover {
           background-color: $blue-color2;
         }
       }
-      span + span {
-        margin-left: 5px;
-      }
-
       .checked {
         background-color: $blue-color2;
+      }
+
+      @include mobile {
+        flex-wrap: wrap;
+        span {
+          width: 100%;
+          text-align: center;
+        }
       }
     }
 
@@ -88,7 +103,7 @@ $inputTableletFontSize: 1rem;
           @include setDiplayFlex(row, start, $center);
           cursor: pointer;
           width: 100%;
-          padding: 10px 0 10px 10px;
+          padding: 0.5em 0 0.5em 0.5em;
           color: $blue-color1;
           transition: 0.5s;
 
@@ -107,6 +122,7 @@ $inputTableletFontSize: 1rem;
             background: $blue-color2;
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
+            transform: scale(0.9);
             span {
               &:last-child {
                 color: $white-color1;
