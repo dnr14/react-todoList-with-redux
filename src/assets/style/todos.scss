@@ -27,9 +27,13 @@ $inputTableletFontSize: 1rem;
   border-radius: 10px;
   border: 1px solid $black-color1;
 
-  @include mobile {
+  @include maxMobile {
     font-size: 12px;
   }
+  @include maxTablet {
+    border-top: 0;
+  }
+
   @include tablet {
     margin-top: 50px;
   }
@@ -37,7 +41,7 @@ $inputTableletFontSize: 1rem;
   .header {
     @include setDiplayFlex(column, $center, $center);
     &--title {
-      font-size: 2rem;
+      font-size: 2em;
       padding: 10px 0;
       color: $black-color1;
     }
@@ -52,18 +56,22 @@ $inputTableletFontSize: 1rem;
   }
 
   .main {
-    margin-top: 20px;
+    margin-top: 1em;
     .input {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 5px 10px;
-      font-size: $inputTableletFontSize;
+      box-sizing: content-box;
+      display: block;
+      width: 90%;
+      padding: 0.5em 5% 0.5em 5%;
       letter-spacing: 0.1rem;
       border-radius: 5px;
       border: 1px solid #000;
       color: $blue-color1;
       &::placeholder {
         color: rgba(00, 00, 00, 0.5);
+      }
+
+      @include maxMobile {
+        height: 1.2em;
       }
     }
 
@@ -77,7 +85,7 @@ $inputTableletFontSize: 1rem;
         cursor: pointer;
         display: inline-block;
         letter-spacing: 0.09rem;
-        padding: 0.7em 0.5em;
+        padding: 0.5em 0.5em;
         &:hover {
           background-color: $blue-color2;
         }
@@ -86,7 +94,7 @@ $inputTableletFontSize: 1rem;
         background-color: $blue-color2;
       }
 
-      @include mobile {
+      @include maxMobile {
         flex-wrap: wrap;
         span {
           width: 100%;

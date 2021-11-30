@@ -1,19 +1,12 @@
 import React, { useCallback, useMemo, useState } from "react";
+import { todoSelector, actions } from "../redux-toolkit/todoList";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTodosAction, toggleChangeAction } from "../redux/store";
 import Todos from "@components/Todos";
 import MenuBar from "../components/MenuBar";
 
 const TodosContainer = () => {
-  const { todos } = useSelector((s) => s);
+  const todos = useSelector(todoSelector);
   const [menu, setMenu] = useState("all");
-  const dispatch = useDispatch();
-
-  const deleteTodos = useCallback(
-    (id) => () => dispatch(deleteTodosAction(id)),
-    [dispatch]
-  );
-  const toggle = useCallback((id) => () => dispatch(toggleChangeAction(id)), [dispatch]);
 
   const handleClick = useCallback((e) => {
     const name = e.target.getAttribute("name");
@@ -35,16 +28,7 @@ const TodosContainer = () => {
     [menu, handleClick]
   );
 
-  return (
-    <Todos
-      dispatch={dispatch}
-      toggle={toggle}
-      deleteTodos={deleteTodos}
-      handleClick={handleClick}
-      todos={newTodos}
-      menuBar={menuBar}
-    />
-  );
+  return <Todos handleClick={handleClick} todos={newTodos} menuBar={menuBar} />;
 };
 
 export default TodosContainer;
