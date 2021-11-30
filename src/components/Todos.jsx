@@ -4,14 +4,14 @@ import Title from "@components/Title";
 import Input from "@components/Input";
 import "@style/todos.scss";
 
-const Todos = ({ todos, dispatch, deleteTodos, toggle, menuBar }) => {
+const Todos = ({ todos, menuBar }) => {
   return (
     <div className="container">
       <Title />
       <div className="main">
-        <Input dispatch={dispatch} />
+        <Input />
         {menuBar}
-        <List todos={todos} deleteTodos={deleteTodos} toggle={toggle} />
+        <List todos={todos} />
       </div>
     </div>
   );

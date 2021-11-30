@@ -1,10 +1,12 @@
 import React, { memo, useState } from "react";
-import { addTodosAction } from "@redux/store";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { actions, todoSelector } from "../redux-toolkit/todoList";
 
-const Input = ({ dispatch }) => {
+const Input = () => {
   const [state, setState] = useState("");
-  const { todos } = useSelector((s) => s);
+  const todos = useSelector(todoSelector);
+  const { addTodo } = actions;
+  const dispatch = useDispatch();
 
   const onChange = (e) => {
     setState(e.target.value);
@@ -21,7 +23,7 @@ const Input = ({ dispatch }) => {
       return;
     }
     setState("");
-    dispatch(addTodosAction(state));
+    dispatch(addTodo(state));
   };
 
   return (
